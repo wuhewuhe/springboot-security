@@ -1,0 +1,34 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title>ajax</title>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+</head>
+<body>
+
+<h1>test ajax error</h1>
+
+<script>
+$.ajax({
+	url: "/error/getAjaxerror",
+	type: "POST",
+	async: false,
+	success: function(data) {
+		debugger;
+        if(data.status == 200 && data.msg == "OK") {
+        	alert("success");
+        } else {
+        	alert("发生异常：" + data.msg);
+        }
+	},
+    error: function (response, ajaxOptions, thrownError) {
+    	alert("error");       
+    }
+});
+</script>
+</body>
+</html>
