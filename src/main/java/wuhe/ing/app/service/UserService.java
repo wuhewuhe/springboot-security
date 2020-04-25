@@ -26,11 +26,10 @@ public class UserService {
 		return repo.save(user);
 	}
 
-	public User add(int age, String name, int passport) {
+	public User add(String name, String password) {
 		User user = new User();
-		user.setAge(age);
 		user.setName(name);
-		user.setPassport(passport);
+		user.setPassword(password);
 		return user;
 	}
 

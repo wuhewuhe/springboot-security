@@ -32,9 +32,9 @@ public class UserController {
 	}
 
 	@PostMapping("/create")
-	public JSONResult create(@RequestParam(value = "age") int age, @RequestParam(value = "passport") int passport,
-			@RequestParam(value = "name") String name) {
-		User user = userService.add(age, name, passport);
+	public JSONResult create(@RequestParam(value = "name") String name,
+			@RequestParam(value = "password") String password) {
+		User user = userService.add(name, password);
 		return new JSONResult(userService.save(user));
 	}
 }
